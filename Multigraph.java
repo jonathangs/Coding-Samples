@@ -237,7 +237,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
 	 * 		   or an empty String if there are no nodes. 
 	 */
 	public String listNodes(){
-		List<E> nodes = sortedObjectArray(this.nodeMap);
+		List<E> nodes = sortedObjectList(this.nodeMap);
 		
 		String result = "";
 		for(E s : nodes)
@@ -259,7 +259,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
 		//checkRep();
 		if(!this.hasNode(node))
 			return "";
-		List<E> childrenNodes = sortedObjectArray(nodeMap.get(node));
+		List<E> childrenNodes = sortedObjectList(nodeMap.get(node));
 		String result = "";
 		for(int i = 0; i < childrenNodes.size(); i++){
 			//get edge collection for every child
@@ -274,32 +274,32 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
 		return result;	
 	}
 	/**
-	 * @return a sorted array with objects representing 
+	 * @return a sorted list with objects representing 
 	 * all of the nodes contained in the graph.
 	 */
-	public List<E> nodeArray(){
-		return sortedObjectArray(this.nodeMap);
+	public List<E> nodeList(){
+		return sortedObjectList(this.nodeMap);
 	}
 	
 	/**
 	 * @requires node is contained in graph
 	 * @param node: the node whose children we're looking for
-	 * @return a sorted array with Objects representing 
+	 * @return a sorted list with Objects representing 
 	 * all of the children of node.
 	 */
-	public List<E> nodeChildrenArray(E node){
-		return sortedObjectArray(this.nodeMap.get(node));
+	public List<E> nodeChildrenList(E node){
+		return sortedObjectList(this.nodeMap.get(node));
 	}
 	
 	/**
-	 * Helper method to return sorted string arrays in alphabetical order 
+	 * Helper method to return sorted object list in alphabetical order 
 	 * that represent the nodes in the first or second hashmap
 	 * 
 	 * Returns unmodifiable list to protect rep. invariant.
 	 * @param <U>
 	 */
 	@SuppressWarnings("unchecked")
-	private <U> List<E> sortedObjectArray(HashMap<E,U> map){
+	private <U> List<E> sortedObjectList(HashMap<E,U> map){
 		if(map != null){
 			List<E> nodes = new ArrayList<E>(); 
 			nodes.addAll(map.keySet());
@@ -318,7 +318,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
 	 */
 	private void checkRep(){
 		assert(nodeMap != null);
-		List<E> nodeArray = this.nodeArray();
+		List<E> nodeArray = this.nodeList();
 		for(int i = 0; i < nodeArray.size(); i++){
 			for(int j = i; j < nodeArray.size(); j++){
 				//check edges are contained
