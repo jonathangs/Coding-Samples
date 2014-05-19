@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * 
  * EdgeCollection is designed to store a list of edges for any multigraph 
  * implementation, although it could also be applicable to any other construct
- * that requires a list of objects that are treated like edges. This version
+ * that requires a list of Strings that are treated like edges. This version
  * uses generics so that we can use any comparable data type.
  * 
  */
@@ -116,7 +116,7 @@ public class EdgeCollection<T extends Comparable<? super T>> {
 	}
 	
 	/**
-	 * Returns an iterator of a copy of the objects in sorted order 
+	 * Returns an iterator of a copy of the strings in sorted order 
 	 * @return an iterator with all of the edges in alphabetical order
 	 */
 	public Iterator<T> iterator(){
@@ -129,7 +129,7 @@ public class EdgeCollection<T extends Comparable<? super T>> {
 	 */
 	private void checkRep(){
 		assert(this.edges != null);
-		//ensure that objects are sorted in alphabetical order 
+		//ensure that strings are sorted in alphabetical order 
 		//and that no two of the same instances occur 
 		for(int i = 0; i < edges.size(); i++){
 			if(i < edges.size()-1)
