@@ -45,9 +45,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
     public Multigraph(){
         nodeMap = new HashMap<E, HashMap<E, EdgeCollection<T>>>();
     }
-    
-    
-    
+
     /**
      * Adds a node to the graph.
      * @param node
@@ -64,7 +62,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         //checkRep();
         return true;
     }
-    
+
     /**
      * Adds a directed edge from one node to another. Nodes are represented 
      * as unique objects.
@@ -90,7 +88,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         //checkRep();
             return true;
     }
-    
+
     /**
      * Adds one or two directed edge from one node to another. 
      * @requires node1 and node2 are within nodeMap && edge not contained in 
@@ -106,7 +104,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         
         return added1 || added2;
     }
-    
+
     /**
      * Deletes one directed edge from node1 to node2.
      * @param node1, node2, edge 
@@ -135,7 +133,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
             return false;
         }
     }
-    
+
     /**
      * Deletes a up to two directed edges involving node1 and node2. 
      * @param node1, node2, edge
@@ -152,8 +150,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         
         return added1 || added2;
     }
-    
-    
+
     /**
      * Deletes a node from the graph, including all edges referencing the node.
      * @param node
@@ -173,8 +170,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         return nodeMap.remove(node) != null;
                 
     }
-    
-    
+
     /**
      * Return the EdgeCollection associated with any given node.
      *  
@@ -198,7 +194,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         //checkRep();
         return result;
     }
-    
+
     /**
      * Return true if the node is in the graph
      * @param node
@@ -209,7 +205,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         return nodeMap.containsKey(node);
         
     }
-    
+
     /**
      * Return the number of nodes in the Multigraph
      * @return int representing number of nodes in graph
@@ -217,8 +213,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
     public int size(){
         return nodeMap.size();
     }
-    
-    
+
     /**
      * Returns an iterator to examine the nodes in the Multigraph
      * 
@@ -227,8 +222,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         //checkRep();
         return nodeMap.entrySet().iterator();
     }
-    
-    
+
     /**
      * @return a String with the nodes listed in alphabetical order 
      *            or an empty String if there are no nodes. 
@@ -242,11 +236,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         
         return result;    
     }
-    
 
-    
-    
-    
     /**
      * @return a String with the children of node listed in alphabetical 
      *         order or an empty String if there are no children. 
@@ -270,6 +260,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
                 
         return result;    
     }
+
     /**
      * @return a sorted list with objects representing 
      * all of the nodes contained in the graph.
@@ -277,7 +268,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
     public List<E> nodeList(){
         return sortedObjectList(this.nodeMap);
     }
-    
+
     /**
      * @requires node is contained in graph
      * @param node: the node whose children we're looking for
@@ -287,7 +278,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
     public List<E> nodeChildrenList(E node){
         return sortedObjectList(this.nodeMap.get(node));
     }
-    
+
     /**
      * Helper method to return sorted object list in alphabetical order 
      * that represent the nodes in the first or second hashmap
@@ -308,7 +299,7 @@ public class Multigraph <E extends Comparable<? super E>, T extends Comparable<?
         }
         
     }
-    
+
     /**
      * Checks to ensure that the invariant holds.
      * 
