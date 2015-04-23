@@ -1,3 +1,5 @@
+Please visit http://students.washington.edu/johngs/ for more samples. 
+
 CampusPaths is a GUI-based program that displays the shortest path from any two buildings on the UW campus. 
 The folder contains a .jar and all the other necessary files to run the program. 
 
